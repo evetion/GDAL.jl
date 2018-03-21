@@ -30,7 +30,7 @@ if is_unix()
     # conda-forge has an up to date gdal recipe
     # https://github.com/conda-forge/gdal-feedstock
     Conda.add_channel("conda-forge")
-    provides(Conda.Manager, "gdal", libgdal)
+    provides(Conda.Manager, "libgdal", libgdal)
 end
 
 @BinDeps.install Dict(:libgdal => :libgdal)
