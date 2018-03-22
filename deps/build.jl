@@ -31,7 +31,7 @@ if is_unix()
     # https://github.com/conda-forge/gdal-feedstock
     Conda.add_channel("conda-forge")
     # ENV["LD_LIBRARY_PATH"]="$(Pkg.dir())/Conda/deps/usr/lib"
-    provides(Conda.Manager, "libgdal", libgdal)
+    provides(Conda.Manager, "libgdal", libgdal, installed_libpath="$(Pkg.dir())/Conda/deps/usr/lib/")
 end
 
 @BinDeps.install Dict(:libgdal => :libgdal)
