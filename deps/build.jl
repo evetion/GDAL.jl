@@ -30,6 +30,7 @@ if is_unix()
     # conda-forge has an up to date gdal recipe
     # https://github.com/conda-forge/gdal-feedstock
     Conda.add_channel("conda-forge")
+    ENV["LD_LIBRARY_PATH"]="$(JULIA_PKGDIR)/Conda/deps/usr/lib"
     provides(Conda.Manager, "libgdal", libgdal)
 end
 
