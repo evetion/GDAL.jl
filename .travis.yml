@@ -11,14 +11,7 @@ matrix:
     - julia: nightly
 notifications:
   email: false
-env:
-  - LD_LIBRARY_PATH=/home/travis/.julia/v0.6/Conda/deps/usr/lib
-matrix:
-  exclude:
-  - os: osx 
-    env: LD_LIBRARY_PATH=/home/travis/.julia/v0.6/Conda/deps/usr/lib
-
 # uncomment the following lines to override the default test script
-#script:
-#  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("GDAL"); Pkg.test("GDAL"; coverage=true)'
+script:
+ - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+ - LD_LIBRARY_PATH="/home/travis/.julia/v0.6/Conda/deps/usr/lib/" julia -e 'Pkg.clone(pwd()); Pkg.build("GDAL"); Pkg.test("GDAL"; coverage=true)'
